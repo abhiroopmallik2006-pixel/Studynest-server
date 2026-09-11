@@ -8,24 +8,22 @@ tasks are isolated by account.
 
 1. Extract this ZIP and upload the folder to a new GitHub repository.
 2. In Render, choose **New > Blueprint** and connect that repository.
-3. Render reads render.yaml and creates one Node web service with a 1 GB
-   persistent disk mounted at /var/data.
-4. When prompted for INVITE_CODE, enter a private code such as
+3. Render reads render.yaml and creates a free Node web service.
+4. Add SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY from your Supabase project.
+5. When prompted for INVITE_CODE, enter a private code such as
    NEST-ABHI-2026. Share it only with friends who should join.
-5. Click **Apply** and wait for the deployment to become Live.
-6. Open the generated .onrender.com URL and create your first account using
+6. Click **Apply** and wait for the deployment to become Live.
+7. Open the generated .onrender.com URL and create your first account using
    the same invite code.
 
-SESSION_SECRET is generated automatically. Tasks, accounts, sessions and file
-metadata use SQLite. Uploaded files are stored under /var/data/uploads.
+SESSION_SECRET is generated automatically. Accounts, sessions, private tasks
+and file metadata use Supabase Postgres. PDFs use the private
+studynest-files Supabase Storage bucket.
 
-## Important pricing note
+## Free hosting
 
-Render Persistent Disks are available on paid services. The included Blueprint
-uses the lowest paid starter web-service plan because the free filesystem is
-ephemeral and would delete uploaded PDFs after restarts. If you remove the disk
-and change the plan to free, the app can run for testing but its saved data is
-not reliable.
+The Blueprint uses Render Free and has no persistent disk. Supabase Free stores
+the durable data and uploaded files. Free-tier usage limits still apply.
 
 ## Limits and security
 
