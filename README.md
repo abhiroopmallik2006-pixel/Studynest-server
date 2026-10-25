@@ -35,6 +35,8 @@ the durable data and uploaded files. Free-tier usage limits still apply.
 
 ## Supabase migration: custom subject folders
 
+The SQL is also saved at `supabase/migrations/20260911_custom_subject_folders.sql`. Open the file, copy its SQL into the Supabase SQL Editor for the same project used by Render, and run it once before using custom folders. This migration is safe to re-run because it uses `if not exists` guards.
+
 Run this once in the Supabase SQL Editor before deploying the custom-folder update:
 
 ```sql
